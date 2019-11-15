@@ -21,7 +21,7 @@ namespace SynelAppDemo.Models
         [CsvColumn(FieldIndex = 3)]
         public string Surname { get; set; }
 
-        [CsvColumn(Name = "Date_of_Birth", FieldIndex = 4)]
+        [CsvColumn(Name = "Date_of_Birth", FieldIndex = 4, OutputFormat = "dd MMM HH:mm:ss")]
         public DateTime DateOfBirth { get; set; }
 
         [CsvColumn(FieldIndex = 5)]
@@ -43,7 +43,7 @@ namespace SynelAppDemo.Models
         [CsvColumn(Name = "EMail_Home", FieldIndex = 10)]
         public string EmailHome { get; set; }
 
-        [CsvColumn(Name = "Start_Date", FieldIndex = 11)]
+        [CsvColumn(Name = "Start_Date", FieldIndex = 11, OutputFormat = "dd MMM HH:mm:ss")]
         public DateTime StartDate { get; set; }
     }
 }
