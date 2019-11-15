@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<SynelAppDemo.Models.Employee>
+
+<div class="col-md-12">
+    @using (Html.BeginForm("UploadCsvFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-group">
+            <label for="attachment">Select a Csv File</label>
+            <label class="btn btn-default btn-file">
+                <input type="file" name="attachmentcsv" id="attachmentcsv" hidden>
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    }
+</div>
+<div style="margin-top:10px;">
+    @if(ViewBag.Rows > 0)
+    {
+    <p> @ViewBag.Rows rows were successfully updated</p>
+    }
+</div>
+<div style="margin-top:25px;">
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Payroll Number</th>
+                <th>First Name</th>
+                <th>
+                    @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.SortParam })
+                </th>
+                <th>Date of Birth</th>
+                <th>Telephone</th>
+                <th>Mobile</th>
+                <th>Address 1</th>
+                <th>Address 2</th>
+                <th>Post Code</th>
+                <th>Email</th>
+                <th>Start Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+            <tr>
+                <td>@item.PayrollNumber</td>
+                <td>@item.FirstName</td>
+                <td>@item.Surname</td>
+                <td>@item.DateOfBirth</td>
+                <td>@item.Telephone</td>
+                <td>@item.Mobile</td>
+                <td>@item.Address</td>
+                <td>@item.Address2</td>
+                <td>@item.Postcode</td>
+                <td>@item.EmailHome</td>
+                <td>@item.StartDate</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
